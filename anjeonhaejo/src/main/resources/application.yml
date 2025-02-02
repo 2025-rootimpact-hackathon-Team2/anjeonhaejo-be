@@ -14,3 +14,7 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+
+jwt:
+  secret: Spqowieursakldjfhgx213213dsadDsadsadsASDSAasdsaTRYYUJYDSJHjksahdsdlkjgfh
+  expiration_time: 2592000000 # 30일
