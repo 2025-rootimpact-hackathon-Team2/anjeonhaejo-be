@@ -1,3 +1,16 @@
 spring:
-  application:
-    name: anjeonhaejo
+  datasource:
+    url: jdbc:mariadb://localhost:3306/anjeon
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: tatayeon
+    password: 1234
+  main:
+    allow-bean-definition-overriding: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
