@@ -40,7 +40,8 @@ public class User {
     }
 
     @ManyToOne(fetch = LAZY)
-    private User user;
+    @JoinColumn(name = "worker_line_id")
+    private WorkerLine workerLine;
 
 
 
