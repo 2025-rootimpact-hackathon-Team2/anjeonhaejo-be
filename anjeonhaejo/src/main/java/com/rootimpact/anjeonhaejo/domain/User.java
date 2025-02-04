@@ -30,19 +30,23 @@ public class User {
 
     private String taskManager;
 
-    public User(String nickname, String userState, String password, String email, RoleType role, String taskManager) {
-        this.username = nickname;
+    public User(String username, String userState, String password, String email, RoleType role, String taskManager, WorkerLine workerLine) {
+        this.username = username;
         this.userState = userState;
         this.password = password;
         this.email = email;
         this.role = role;
         this.taskManager = taskManager;
+        this.workerLine = workerLine;
     }
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "worker_line_id")
     private WorkerLine workerLine;
 
+    public void setWorkerLine(WorkerLine workerLine) {
+        this.workerLine = workerLine;
+    }
 
 
 }
