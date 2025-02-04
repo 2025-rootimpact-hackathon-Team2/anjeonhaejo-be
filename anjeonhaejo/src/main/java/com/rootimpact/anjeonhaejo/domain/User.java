@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -37,6 +38,9 @@ public class User {
         this.role = role;
         this.taskManager = taskManager;
     }
+
+    @ManyToOne(fetch = LAZY)
+    private User user;
 
 
 
