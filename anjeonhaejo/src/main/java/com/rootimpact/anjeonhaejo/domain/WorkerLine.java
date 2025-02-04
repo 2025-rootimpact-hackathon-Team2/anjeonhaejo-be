@@ -14,7 +14,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Entity
 @Getter
 @NoArgsConstructor
-public class WorkerLine {
+public class WorkerLine extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -38,6 +38,6 @@ public class WorkerLine {
     private Long vibrationLevel;
 
     @OneToMany(mappedBy = "workerLine", cascade = {PERSIST, REMOVE}, orphanRemoval = true)
-    private List<User> userCount = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
 }
