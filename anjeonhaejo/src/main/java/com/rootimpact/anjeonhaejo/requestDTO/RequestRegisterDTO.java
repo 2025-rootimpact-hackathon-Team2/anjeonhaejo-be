@@ -19,6 +19,8 @@ public class RequestRegisterDTO {
 
     private String taskManager;
 
+    private Long workerLineId;
+
 
 
 }

@@ -1,8 +1,10 @@
 package com.rootimpact.anjeonhaejo.service;
 
 import com.rootimpact.anjeonhaejo.domain.User;
+import com.rootimpact.anjeonhaejo.domain.WorkerLine;
 import com.rootimpact.anjeonhaejo.domain.enumration.RoleType;
 import com.rootimpact.anjeonhaejo.repository.UserRepository;
+import com.rootimpact.anjeonhaejo.repository.WorkerLineRepository;
 import com.rootimpact.anjeonhaejo.requestDTO.LoginDTO;
 import com.rootimpact.anjeonhaejo.requestDTO.RequestRegisterDTO;
 import com.rootimpact.anjeonhaejo.security.custom.CustomUserInfoDto;
@@ -19,12 +21,29 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final WorkerLineRepository workerLineRepository;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder encoder;
 
     @Transactional
     public void register(RequestRegisterDTO dto){
-        User user = new User(dto.getUsername(), dto.getUserState(),encoder.encode(dto.getPassword()), dto.getUsername(), dto.getRole(), dto.getTaskManager());
+
+        // WorkerLine 찾기
+        WorkerLine workerLine = workerLineRepository.findById(dto.getWorkerLineId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid WorkerLine ID"));
+
+        User user = new User(
+                dto.getUsername(),
+                dto.getUserState(),
+                encoder.encode(dto.getPassword()),
+                dto.getUsername(),
+                dto.getRole(),
+                dto.getTaskManager(),
+                workerLine);
+
+        // WorkerLine 설정
+        user.setWorkerLine(workerLine);
+
         userRepository.save(user);
 
     }
