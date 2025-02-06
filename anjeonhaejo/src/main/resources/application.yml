@@ -18,3 +18,7 @@ spring:
 jwt:
   secret: Spqowieursakldjfhgx213213dsadDsadsadsASDSAasdsaTRYYUJYDSJHjksahdsdlkjgfh
   expiration_time: 2592000000 # 30일
+
+django:
+  api:
+    url: "http://localhost:8000/api/upload/"
