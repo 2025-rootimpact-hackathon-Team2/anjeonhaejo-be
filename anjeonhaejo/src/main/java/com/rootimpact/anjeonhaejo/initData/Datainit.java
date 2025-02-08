@@ -7,6 +7,7 @@ import com.rootimpact.anjeonhaejo.repository.UserRepository;
 import com.rootimpact.anjeonhaejo.repository.WorkerLineRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,7 @@ public class Datainit {
 
     private final UserRepository userRepository; // UserRepository 추가
     private final WorkerLineRepository workerLineRepository; // WorkerLineRepository 추가
+    private final PasswordEncoder encoder;
 
     @PostConstruct
     @Transactional
@@ -73,11 +75,11 @@ public class Datainit {
         workerLineRepository.save(workerLineD);
 
         // User 데이터 생성
-        User user1 = new User("작업자1", "Active", "password1", "user1@example.com", RoleType.WORKER, "Manager1", workerLineA);
-        User user2 = new User("작업자2", "Active", "password2", "user2@example.com", RoleType.WORKER, "Manager2", workerLineB);
-        User user3 = new User("작업자3", "Active", "password3", "user3@example.com", RoleType.WORKER, "Manager3", workerLineC);
-        User user4 = new User("작업자4", "Inactive", "password4", "user4@example.com", RoleType.WORKER, "Manager4", workerLineD);
-        User user5 = new User("작업자5", "Active", "password5", "user5@example.com", RoleType.WORKER, "Manager5", workerLineA);
+        User user1 = new User("작업자1", "Active", encoder.encode("1234"), "user1@example.com", RoleType.WORKER, "Manager1", workerLineA);
+        User user2 = new User("작업자2", "Active", encoder.encode("1234"), "user2@example.com", RoleType.WORKER, "Manager2", workerLineB);
+        User user3 = new User("작업자3", "Active", encoder.encode("1234"), "user3@example.com", RoleType.WORKER, "Manager3", workerLineC);
+        User user4 = new User("작업자4", "Inactive", encoder.encode("1234"), "user4@example.com", RoleType.WORKER, "Manager4", workerLineD);
+        User user5 = new User("작업자5", "Active", encoder.encode("1234"), "user5@example.com", RoleType.WORKER, "Manager5", workerLineA);
 
         // User 저장
         userRepository.save(user1);

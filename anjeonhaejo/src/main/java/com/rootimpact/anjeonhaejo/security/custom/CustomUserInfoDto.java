@@ -1,6 +1,5 @@
 package com.rootimpact.anjeonhaejo.security.custom;
 
-
 import com.rootimpact.anjeonhaejo.domain.enumration.RoleType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
