@@ -2,7 +2,6 @@ package com.rootimpact.anjeonhaejo.service;
 
 import com.rootimpact.anjeonhaejo.domain.User;
 import com.rootimpact.anjeonhaejo.domain.WorkerLine;
-import com.rootimpact.anjeonhaejo.domain.enumration.RoleType;
 import com.rootimpact.anjeonhaejo.repository.UserRepository;
 import com.rootimpact.anjeonhaejo.repository.WorkerLineRepository;
 import com.rootimpact.anjeonhaejo.requestDTO.LoginDTO;
@@ -21,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     private final WorkerLineRepository workerLineRepository;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder encoder;
@@ -28,36 +28,31 @@ public class UserService {
     @Transactional
     public void register(RequestRegisterDTO dto){
 
-        // WorkerLine 찾기
-        WorkerLine workerLine = workerLineRepository.findById(dto.getWorkerLineId())
-                .orElseThrow(() -> new IllegalArgumentException("Invalid WorkerLine ID"));
+        WorkerLine workerLine = workerLineRepository.findById(dto.getWorkerLineId()).orElse(null);
 
         User user = new User(
                 dto.getUsername(),
                 dto.getUserState(),
                 encoder.encode(dto.getPassword()),
-                dto.getUsername(),
+                dto.getEmail(),
                 dto.getRole(),
                 dto.getTaskManager(),
-                workerLine);
-
-        // WorkerLine 설정
-        user.setWorkerLine(workerLine);
-
+                workerLine
+                );
         userRepository.save(user);
 
     }
 
 
     public String login(LoginDTO dto) {
-        System.out.println(dto.getEmail() + ", " + dto.getPassword());
-        User user = userRepository.findUserByEmail(dto.getEmail()).orElse(null);
-        assert user != null;
-        System.out.println(user.getEmail());
+        System.out.println("service "+dto.getEmail() + " " + dto.getPassword());
+        User user = userRepository.findUserByEmail(dto.getEmail());
 
         if(user == null){
             return "you can't use we service";
-        } else if (!encoder.matches(dto.getPassword(), user.getPassword())) {
+        }
+
+        if(!encoder.matches(dto.getPassword(), user.getPassword())) {
             return "password error";
         }
 

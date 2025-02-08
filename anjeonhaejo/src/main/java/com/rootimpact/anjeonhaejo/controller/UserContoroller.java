@@ -4,6 +4,10 @@ package com.rootimpact.anjeonhaejo.controller;
 import com.rootimpact.anjeonhaejo.requestDTO.LoginDTO;
 import com.rootimpact.anjeonhaejo.requestDTO.RequestRegisterDTO;
 import com.rootimpact.anjeonhaejo.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,10 +26,11 @@ import java.net.URLEncoder;
 @RequestMapping("/user")
 public class UserContoroller {
 
-     private final UserService userService;
+    private final UserService userService;
 
     @PostMapping("/register")
     public String register(@RequestBody RequestRegisterDTO registerDTO){
+//        System.out.println(registerDTO.getGender());
         userService.register(registerDTO);
 
         String token = userService.login(new LoginDTO(registerDTO.getUsername(), registerDTO.getPassword()));
@@ -36,7 +41,7 @@ public class UserContoroller {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginDTO dto){
-        System.out.println("dto = " + dto.getEmail());
+        System.out.println("controller = " + dto.getEmail());
         String status = userService.login(dto);
 
         if(status.equals("user not found") || status.equals("password error")) {
@@ -48,6 +53,7 @@ public class UserContoroller {
 
     }
 
+
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
         // 쿠키 삭제
@@ -58,11 +64,6 @@ public class UserContoroller {
         response.addCookie(cookie);
 
         return ResponseEntity.status(HttpStatus.OK).body("Logged out successfully");
-    }
-
-    public ResponseEntity<Boolean> checkUsername(@PathVariable("username") String username){
-        System.out.println("username = " + username);
-        return userService.checkUserName(username);
     }
 
     public void insertToken(String token) {
