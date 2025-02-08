@@ -19,7 +19,7 @@ public class WorkerLine extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "workLine_id")
+    @Column(name = "workline_id")
     private Long id;
 
     private String zoneName;
@@ -40,6 +40,9 @@ public class WorkerLine extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "workerLine", cascade = {PERSIST, REMOVE}, orphanRemoval = true)
     private List<User> users = new ArrayList<>();
+
+    @OneToMany(mappedBy = "workerLine", cascade = {PERSIST, REMOVE}, orphanRemoval = true)
+    private List<Report> reports = new ArrayList<>();
 
     @Builder
     public WorkerLine(String zoneName, String workState, Long temperature, Long oxygenSaturation, Long co2Level, Long flammableGasLevel, Long noiseLevel, Long vibrationLevel) {
