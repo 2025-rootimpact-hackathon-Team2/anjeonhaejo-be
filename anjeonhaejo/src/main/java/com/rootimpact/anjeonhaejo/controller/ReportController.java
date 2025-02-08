@@ -19,14 +19,11 @@ public class ReportController {
 
     @PostMapping("/create")
     public String addRecord(@RequestBody CreateReportRequestDTO dto, @AuthenticationPrincipal CustomUserDetails user) throws ChangeSetPersister.NotFoundException {
-//        System.out.println("===============" + user.getUserId());
         return reportService.createReport(user.getUserId(), dto);
     }
 
     @GetMapping("/show/detail/{reportId}")
     public ResponseEntity<CreateReportResponseDTO> showDetailReport(@PathVariable("reportId") Long reportId, @AuthenticationPrincipal CustomUserDetails user) {
-//        System.out.println("==============" + user.getUserId()+", reportId" + reportId);
         return reportService.showDetailReport(reportId, user.getUserId());
     }
-
 }

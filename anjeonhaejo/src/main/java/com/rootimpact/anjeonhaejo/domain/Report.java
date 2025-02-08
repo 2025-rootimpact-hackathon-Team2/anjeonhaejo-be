@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -20,14 +23,6 @@ public class Report extends BaseTimeEntity {
 
     private String content;
 
-    @Builder
-    public Report(String title, String content, User user, WorkerLine workerLine) {
-        this.title = title;
-        this.content = content;
-        this.user = user;
-        this.workerLine = workerLine;
-    }
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -37,4 +32,27 @@ public class Report extends BaseTimeEntity {
     @JoinColumn(name = "workline_id")
     private WorkerLine workerLine;
 
+    // Report와 Tag 사이의 ManyToMany 관계 설정
+    @OneToMany(mappedBy = "report", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ReportTagMap> tagMap = new HashSet<>();
+
+    @Builder
+    public Report(String title, String content, User user, WorkerLine workerLine) {
+        this.title = title;
+        this.content = content;
+        this.user = user;
+        this.workerLine = workerLine;
+    }
+
+    // 태그 추가 메서드
+    public void addTag(Tag tag) {
+        ReportTagMap reportTagMap = new ReportTagMap(this, tag);
+        this.tagMap.add(reportTagMap);
+    }
+
+    // 태그 제거 메서드
+    public void removeTag(Tag tag) {
+        ReportTagMap reportTagMap = new ReportTagMap(this, tag);
+        this.tagMap.remove(reportTagMap);
+    }
 }

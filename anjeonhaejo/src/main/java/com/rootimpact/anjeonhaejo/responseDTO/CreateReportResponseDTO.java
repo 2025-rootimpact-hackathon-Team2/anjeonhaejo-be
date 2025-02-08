@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 public class CreateReportResponseDTO {
@@ -14,10 +15,13 @@ public class CreateReportResponseDTO {
 
     private String content;
 
+    private List<String> tagNames;
+
     @Builder
-    public CreateReportResponseDTO(LocalDateTime createdAt, String zoneName, String content) {
+    public CreateReportResponseDTO(LocalDateTime createdAt, String zoneName, String content, List<String> tagNames) {
         this.createdAt = createdAt;
         this.zoneName = zoneName;
         this.content = content;
+        this.tagNames = tagNames;
     }
 }
