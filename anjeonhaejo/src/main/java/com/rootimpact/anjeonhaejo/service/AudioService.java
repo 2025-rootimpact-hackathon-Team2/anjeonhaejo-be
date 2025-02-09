@@ -26,6 +26,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -100,8 +101,20 @@ public class AudioService {
 
 
 
-    public List<AudioAnalysis> getAllAudioFiles() {
-        return audioAnalysisRepository.findAll();
+    public List<EmergencyDecibelResponseDTO> getAllAudioFiles() {
+        List<AudioAnalysis> audioAnalysisList = audioAnalysisRepository.findAll();
+
+        // AudioAnalysis 객체를 EmergencyDecibelResponseDTO로 변환
+        return audioAnalysisList.stream()
+                .map(audioAnalysis -> new EmergencyDecibelResponseDTO(
+                        audioAnalysis.getCreateTime(),
+                        audioAnalysis.getWorkerZone(),
+                        audioAnalysis.getDecibel(),
+                        audioAnalysis.getSoundClass(),
+                        audioAnalysis.getTranscription()
+                ))
+                .collect(Collectors.toList());
     }
+
 
 }
