@@ -32,7 +32,7 @@ public class AudioController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<AudioAnalysis>> getAllAudioFiles() {
+    public ResponseEntity<List<EmergencyDecibelResponseDTO>> getAllAudioFiles() {
         return ResponseEntity.ok(audioService.getAllAudioFiles());
     }
 
