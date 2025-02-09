@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.rootimpact.anjeonhaejo.domain.AudioAnalysis;
 import com.rootimpact.anjeonhaejo.repository.AudioAnalysisRepository;
+import com.rootimpact.anjeonhaejo.responseDTO.EmergencyDecibelResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
 import org.apache.hc.core5.http.HttpEntity;
@@ -33,7 +34,7 @@ public class AudioService {
     private final AudioAnalysisRepository audioAnalysisRepository;
     private static final String DJANGO_API_URL = "http://localhost:8000/api/upload/";
 
-    public AudioAnalysis analyzeAudio(MultipartFile file) throws Exception {
+    public EmergencyDecibelResponseDTO analyzeAudio(MultipartFile file, double decibel, String workerZone) throws Exception {
         // 파일을 임시 저장
         Path tempFile = Files.createTempFile("audio_", file.getOriginalFilename());
         Files.copy(file.getInputStream(), tempFile, StandardCopyOption.REPLACE_EXISTING);
@@ -60,9 +61,20 @@ public class AudioService {
                 .soundClass(responseJson.getString("sound_class"))
                 .transcription(responseJson.getString("transcription"))
                 .detectedKeywords(detectedKeywords) // JSON 배열을 Java 리스트로 변환해서 저장
+                .decibel(decibel)
+                .workerZone(workerZone)
                 .build();
 
-        return audioAnalysisRepository.save(audioAnalysis);
+        audioAnalysisRepository.save(audioAnalysis);
+
+        EmergencyDecibelResponseDTO responseDTO = new EmergencyDecibelResponseDTO(
+                audioAnalysis.getCreateTime(),
+                audioAnalysis.getWorkerZone(),
+                audioAnalysis.getDecibel(),
+                audioAnalysis.getSoundClass(),
+                audioAnalysis.getTranscription());
+
+        return responseDTO;
     }
 
     private JSONObject sendToDjangoServer(File file) throws Exception {
