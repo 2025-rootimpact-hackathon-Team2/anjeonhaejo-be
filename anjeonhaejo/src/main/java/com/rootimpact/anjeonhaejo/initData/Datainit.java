@@ -1,8 +1,10 @@
 package com.rootimpact.anjeonhaejo.initData;
 
+import com.rootimpact.anjeonhaejo.domain.Machine;
 import com.rootimpact.anjeonhaejo.domain.User;
 import com.rootimpact.anjeonhaejo.domain.WorkerLine;
 import com.rootimpact.anjeonhaejo.domain.enumration.RoleType;
+import com.rootimpact.anjeonhaejo.repository.MachineRepository;
 import com.rootimpact.anjeonhaejo.repository.UserRepository;
 import com.rootimpact.anjeonhaejo.repository.WorkerLineRepository;
 import jakarta.annotation.PostConstruct;
@@ -17,6 +19,7 @@ public class Datainit {
 
     private final UserRepository userRepository; // UserRepository 추가
     private final WorkerLineRepository workerLineRepository; // WorkerLineRepository 추가
+    private final MachineRepository machineRepository;
     private final PasswordEncoder encoder;
 
     @PostConstruct
@@ -27,45 +30,23 @@ public class Datainit {
         WorkerLine workerLineA = WorkerLine.builder()
                 .zoneName("A")
                 .workState("Working")
-                .temperature(22L)
-                .oxygenSaturation(12L)
-                .co2Level(3L)
-                .flammableGasLevel(12L)
-                .noiseLevel(23L)
-                .vibrationLevel(43L)
+                .threshold(3)
                 .build();
 
         WorkerLine workerLineB = WorkerLine.builder()
                 .zoneName("B")
                 .workState("Working")
-                .temperature(25L)
-                .oxygenSaturation(22L)
-                .co2Level(33L)
-                .flammableGasLevel(15L)
-                .noiseLevel(13L)
-                .vibrationLevel(43L)
+                .threshold(2)
                 .build();
 
         WorkerLine workerLineC = WorkerLine.builder()
                 .zoneName("C")
                 .workState("Working")
-                .temperature(22L)
-                .oxygenSaturation(12L)
-                .co2Level(3L)
-                .flammableGasLevel(12L)
-                .noiseLevel(23L)
-                .vibrationLevel(43L)
                 .build();
 
         WorkerLine workerLineD = WorkerLine.builder()
                 .zoneName("D")
                 .workState("Working")
-                .temperature(22L)
-                .oxygenSaturation(12L)
-                .co2Level(3L)
-                .flammableGasLevel(12L)
-                .noiseLevel(23L)
-                .vibrationLevel(43L)
                 .build();
 
         // WorkerLine 저장
@@ -87,6 +68,18 @@ public class Datainit {
         userRepository.save(user3);
         userRepository.save(user4);
         userRepository.save(user5);
+
+        Machine machine = new Machine("컨베이너 밸트", workerLineA);
+        Machine machine1 = new Machine("용광로", workerLineA);
+        Machine machine2 = new Machine("압연기", workerLineC);
+        Machine machine3 = new Machine("크레인", workerLineB);
+        machineRepository.save(machine);
+        machineRepository.save(machine1);
+        machineRepository.save(machine2);
+        machineRepository.save(machine3);
+
+
+
     }
 }
 
