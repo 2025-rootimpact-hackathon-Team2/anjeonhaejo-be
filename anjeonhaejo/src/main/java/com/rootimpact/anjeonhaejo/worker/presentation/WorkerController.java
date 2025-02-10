@@ -21,6 +21,8 @@ public class WorkerController {
 
     private final WorkerService workerService;
 
+
+
     @GetMapping("/workers")
     public ResponseEntity<List<ReadAllWorkersResponse>> readAllWorkers() {
         log.info("method: readAllWorkers, requested time: {}", LocalDateTime.now());
