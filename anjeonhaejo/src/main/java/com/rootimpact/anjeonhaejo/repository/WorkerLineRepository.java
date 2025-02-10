@@ -4,4 +4,5 @@ import com.rootimpact.anjeonhaejo.domain.WorkerLine;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface WorkerLineRepository extends JpaRepository<WorkerLine, Long> {
+    WorkerLine findByZoneName(String zoneName);
 }

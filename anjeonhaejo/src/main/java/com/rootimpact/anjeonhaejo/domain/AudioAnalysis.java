@@ -19,7 +19,7 @@ public class AudioAnalysis extends BaseTimeEntity{
 
     private String filename;
 
-    private String workerZone;
+    private Long workerZone;
 
     private double decibel;
 

@@ -24,3 +24,7 @@ jwt:
 django:
   api:
     url: "http://localhost:8000/api/upload/"
+
+springdoc:
+  swagger-ui:
+    path: /api-test

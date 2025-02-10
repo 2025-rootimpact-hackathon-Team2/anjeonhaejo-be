@@ -1,11 +1,12 @@
 package com.rootimpact.anjeonhaejo.service;
 
 
-import aj.org.objectweb.asm.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.rootimpact.anjeonhaejo.domain.AudioAnalysis;
+import com.rootimpact.anjeonhaejo.domain.WorkerLine;
 import com.rootimpact.anjeonhaejo.repository.AudioAnalysisRepository;
+import com.rootimpact.anjeonhaejo.repository.WorkerLineRepository;
 import com.rootimpact.anjeonhaejo.responseDTO.EmergencyDecibelResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
@@ -26,6 +27,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,9 +35,15 @@ import java.util.stream.Collectors;
 public class AudioService {
 
     private final AudioAnalysisRepository audioAnalysisRepository;
+    private final WorkerLineRepository workerLineRepository;
     private static final String DJANGO_API_URL = "http://localhost:8000/api/upload/";
 
-    public EmergencyDecibelResponseDTO analyzeAudio(MultipartFile file, double decibel, String workerZone) throws Exception {
+    public EmergencyDecibelResponseDTO analyzeAudio(MultipartFile file, double decibel, Long workerZone) throws Exception {
+        System.out.println(workerZone);
+        Optional<WorkerLine> workerLine = workerLineRepository.findById(workerZone);
+        workerLine.get().setThreshold(workerLine.get().getThreshold() + 1);
+
+
         // 파일을 임시 저장
         Path tempFile = Files.createTempFile("audio_", file.getOriginalFilename());
         Files.copy(file.getInputStream(), tempFile, StandardCopyOption.REPLACE_EXISTING);
@@ -77,6 +85,7 @@ public class AudioService {
 
         return responseDTO;
     }
+
 
     private JSONObject sendToDjangoServer(File file) throws Exception {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {

@@ -13,7 +13,7 @@ public class EmergencyDecibelResponseDTO {
 
     private LocalDateTime timestamp;
 
-    private String workerZone;
+    private Long workerZone;
 
     private double decibel;
 
@@ -21,7 +21,7 @@ public class EmergencyDecibelResponseDTO {
 
     private String transcription;
 
-    public EmergencyDecibelResponseDTO(LocalDateTime timestamp, String workerZone, double decibel, String soundClass, String transcription) {
+    public EmergencyDecibelResponseDTO(LocalDateTime timestamp, Long workerZone, double decibel, String soundClass, String transcription) {
         this.timestamp = timestamp;
         this.workerZone = workerZone;
         this.decibel = decibel;
