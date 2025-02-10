@@ -30,7 +30,7 @@ public class Datainit {
         WorkerLine workerLineA = WorkerLine.builder()
                 .zoneName("A")
                 .workState("Working")
-                .threshold(3)
+                .threshold(6)
                 .build();
 
         WorkerLine workerLineB = WorkerLine.builder()
@@ -69,14 +69,36 @@ public class Datainit {
         userRepository.save(user4);
         userRepository.save(user5);
 
+
+//        공장설정: 제철소
+//        A구역 원료처리, 고온작업
+//        (컨베이어벨트, 용광로)
+//
+//        B구역 고온제련, 연속적소음과 폭발음 가능
+//        (압연기, 크레인)
+//
+//        C구역 냉각, 부속 장비
+//                (펌프, 냉각기)
+//
+//        D구역 출하/ 물류
+//                (지게차 등 운송)
         Machine machine = new Machine("컨베이너 밸트", workerLineA);
         Machine machine1 = new Machine("용광로", workerLineA);
-        Machine machine2 = new Machine("압연기", workerLineC);
-        Machine machine3 = new Machine("크레인", workerLineB);
+        Machine machine2 = new Machine("크레인", workerLineB);
+        Machine machine3 = new Machine("압연기", workerLineB);
+        Machine machine4 = new Machine("압연기", workerLineC);
+        Machine machine5 = new Machine("냉각기", workerLineC);
+        Machine machine6 = new Machine("지게차", workerLineD);
+        Machine machine7 = new Machine("운송", workerLineD);
+
         machineRepository.save(machine);
         machineRepository.save(machine1);
         machineRepository.save(machine2);
         machineRepository.save(machine3);
+        machineRepository.save(machine4);
+        machineRepository.save(machine5);
+        machineRepository.save(machine6);
+        machineRepository.save(machine7);
 
 
 
