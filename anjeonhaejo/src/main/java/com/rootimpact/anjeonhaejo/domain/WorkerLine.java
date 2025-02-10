@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,17 +27,8 @@ public class WorkerLine extends BaseTimeEntity {
 
     private String workState;
 
-    private Long temperature;
+    private int threshold = 0;
 
-    private Long oxygenSaturation;
-
-    private Long co2Level;
-
-    private Long flammableGasLevel;
-
-    private Long noiseLevel;
-
-    private Long vibrationLevel;
 
     @OneToMany(mappedBy = "workerLine", cascade = {PERSIST, REMOVE}, orphanRemoval = true)
     private List<User> users = new ArrayList<>();
@@ -45,14 +37,24 @@ public class WorkerLine extends BaseTimeEntity {
     private List<Report> reports = new ArrayList<>();
 
     @Builder
-    public WorkerLine(String zoneName, String workState, Long temperature, Long oxygenSaturation, Long co2Level, Long flammableGasLevel, Long noiseLevel, Long vibrationLevel) {
+    public WorkerLine(String zoneName, String workState, int threshold) {
         this.zoneName = zoneName;
         this.workState = workState;
-        this.temperature = temperature;
-        this.oxygenSaturation = oxygenSaturation;
-        this.co2Level = co2Level;
-        this.flammableGasLevel = flammableGasLevel;
-        this.noiseLevel = noiseLevel;
-        this.vibrationLevel = vibrationLevel;
+        if (threshold > 0) {
+            this.threshold = threshold;  // threshold 값이 0보다 크면 해당 값으로 설정
+        }
     }
+
+    // threshold 값을 수정할 수 있는 setter 메서드 추가
+    public void setThreshold(int threshold) {
+        this.threshold = threshold;
+    }
+
+    // threshold 값을 1 증가시키는 메서드
+    public void incrementThreshold() {
+        this.threshold++;
+    }
+
+
+
 }

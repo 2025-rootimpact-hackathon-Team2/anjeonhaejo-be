@@ -20,7 +20,7 @@ public class AudioController {
     @PostMapping("/upload")
     public ResponseEntity<EmergencyDecibelResponseDTO> uploadAudio(@RequestParam("file") MultipartFile file,
                                                      @RequestParam("decibel") double decibel,
-                                                     @RequestParam("workerZone") String workerZone) {
+                                                     @RequestParam("workerZone") Long workerZone) {
         System.out.println(decibel);
         System.out.println(workerZone);
         try {
