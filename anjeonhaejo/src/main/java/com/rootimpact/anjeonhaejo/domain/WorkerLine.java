@@ -36,6 +36,9 @@ public class WorkerLine extends BaseTimeEntity {
     @OneToMany(mappedBy = "workerLine", cascade = {PERSIST, REMOVE}, orphanRemoval = true)
     private List<Report> reports = new ArrayList<>();
 
+    @OneToMany(mappedBy = "workerLine", cascade = {PERSIST, REMOVE}, orphanRemoval = true)
+    private List<Machine> machines = new ArrayList<>();
+
     @Builder
     public WorkerLine(String zoneName, String workState, int threshold) {
         this.zoneName = zoneName;
