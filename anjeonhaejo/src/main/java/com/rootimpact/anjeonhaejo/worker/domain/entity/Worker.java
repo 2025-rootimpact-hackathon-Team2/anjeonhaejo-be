@@ -1,10 +1,7 @@
 package com.rootimpact.anjeonhaejo.worker.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @NoArgsConstructor
@@ -30,4 +27,17 @@ public class Worker {
 
     @Column(name = "condition")
     private String condition;
+
+    @Builder
+    private Worker(
+            final String name,
+            final String department,
+            final String significant,
+            final String condition
+    ) {
+        this.name = name;
+        this.department = department;
+        this.significant = significant;
+        this.condition = condition;
+    }
 }
