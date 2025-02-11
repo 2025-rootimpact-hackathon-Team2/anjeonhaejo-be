@@ -28,6 +28,11 @@ public class UserContoroller {
 
     private final UserService userService;
 
+    @Operation(summary = "사용자 생성", description = "사용자를 생성합니다.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "사용자 생성 성공"),
+            @ApiResponse(responseCode = "400", description = "잘못된 요청 데이터")
+    })
     @PostMapping("/register")
     public String register(@RequestBody RequestRegisterDTO registerDTO){
 //        System.out.println(registerDTO.getGender());
@@ -39,6 +44,11 @@ public class UserContoroller {
         return token;
     }
 
+    @Operation(summary = "사용자 로그인", description = "사용자가 로그인합니다.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "사용자 로그인 성공"),
+            @ApiResponse(responseCode = "401", description = "잘못된 요청 데이터")
+    })
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginDTO dto){
         System.out.println("controller = " + dto.getEmail());
@@ -53,7 +63,11 @@ public class UserContoroller {
 
     }
 
-
+    @Operation(summary = "사용자 로그아웃", description = "사용자가 로그아웃합니다.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "사용자 로그아웃 성공"),
+            @ApiResponse(responseCode = "401", description = "잘못된 요청 데이터")
+    })
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
         // 쿠키 삭제
