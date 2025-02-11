@@ -11,7 +11,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update  # RDS에서 테이블 자동 업데이트
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
@@ -23,7 +23,7 @@ jwt:
 
 django:
   api:
-    url: "http://43.202.242.205:8000/api/upload/"
+    url: "http://localhost:8000/api/upload/"
 
 springdoc:
   swagger-ui:
