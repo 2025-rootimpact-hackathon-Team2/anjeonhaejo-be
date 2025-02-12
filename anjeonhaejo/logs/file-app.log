@@ -1,0 +1,20 @@
+2025-02-12 19:55:46 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.6 with PID 42586 (/Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo/build/classes/java/main started by limtaeyeon in /Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo)
+2025-02-12 19:55:46 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-12 19:55:46 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-12 19:55:59 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 13.118 seconds (process running for 408.391)
+2025-02-12 19:56:00 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.6 with PID 42586 (/Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo/build/classes/java/main started by limtaeyeon in /Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo)
+2025-02-12 19:56:00 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-12 19:56:00 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-12 19:56:12 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 11.544 seconds (process running for 421.459)
+2025-02-12 19:58:56 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - Starting AnjeonhaejoApplicationTests using Java 21.0.6 with PID 42992 (started by limtaeyeon in /Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo)
+2025-02-12 19:58:56 [Test worker] DEBUG c.r.a.AnjeonhaejoApplicationTests - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-12 19:58:56 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-12 19:59:20 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.6 with PID 42586 (/Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo/build/classes/java/main started by limtaeyeon in /Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo)
+2025-02-12 19:59:20 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-12 19:59:20 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-12 19:59:22 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - Starting AnjeonhaejoApplicationTests using Java 21.0.6 with PID 43040 (started by limtaeyeon in /Users/limtaeyeon/RootImpact-Hackathoon/anjeonhaejo)
+2025-02-12 19:59:22 [Test worker] DEBUG c.r.a.AnjeonhaejoApplicationTests - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-12 19:59:22 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-02-12 19:59:39 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - Started AnjeonhaejoApplicationTests in 43.285 seconds (process running for 43.767)
+2025-02-12 19:59:52 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 32.646 seconds (process running for 641.848)
+2025-02-12 19:59:54 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - Started AnjeonhaejoApplicationTests in 32.555 seconds (process running for 33.029)

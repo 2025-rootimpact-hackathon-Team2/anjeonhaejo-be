@@ -5,20 +5,20 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Map;
 
-@Builder
 @Getter
+@NoArgsConstructor
+@Builder
 public class ShowAllTageDTO {
+    @Schema(description = "태그 목록 (이름 -> ID)", example = "{\"소음 이상\": 1, \"기계 소리 이상\": 2}")
+    private Map<String, Long> tagMap; // 태그 이름과 ID를 매핑한 Map
 
-    @Schema(description = "태그 이름", example = "소음이상")
-    private List<String> tagName;
-
-    @Schema(description = "태그 카테고리", example = "기계")
+    @Schema(description = "카테고리 이름", example = "기계")
     private String categoryName;
 
-    public ShowAllTageDTO(List<String> tagName, String categoryName) {
-        this.tagName = tagName;
+    public ShowAllTageDTO(Map<String, Long> tagMap, String categoryName) {
+        this.tagMap = tagMap;
         this.categoryName = categoryName;
     }
 }

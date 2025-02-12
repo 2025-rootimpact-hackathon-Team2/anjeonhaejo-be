@@ -39,4 +39,6 @@ public class ReportController {
     public ResponseEntity<CreateReportResponseDTO> showDetailReport(@PathVariable("reportId") Long reportId, @AuthenticationPrincipal CustomUserDetails user) {
         return reportService.showDetailReport(reportId, user.getUserId());
     }
+
+
 }

@@ -38,7 +38,6 @@ public class ReportService {
 
         if (workerLine != null && user != null) {
             Report report = new Report(
-                    dto.getTitle(),
                     dto.getContent(),
                     user,
                     workerLine

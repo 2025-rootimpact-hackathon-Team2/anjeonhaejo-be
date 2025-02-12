@@ -19,8 +19,6 @@ public class Report extends BaseTimeEntity {
     @Column(name = "report_id")
     private Long id;
 
-    private String title;
-
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -37,8 +35,7 @@ public class Report extends BaseTimeEntity {
     private Set<ReportTagMap> tagMap = new HashSet<>();
 
     @Builder
-    public Report(String title, String content, User user, WorkerLine workerLine) {
-        this.title = title;
+    public Report(String content, User user, WorkerLine workerLine) {
         this.content = content;
         this.user = user;
         this.workerLine = workerLine;

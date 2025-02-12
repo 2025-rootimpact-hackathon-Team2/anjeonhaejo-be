@@ -48,18 +48,19 @@ public class TagService {
                 .stream()
                 .collect(Collectors.groupingBy(Tag::getCategory));
 
-        // 그룹화된 결과를 DTO 리스트로 변환
+        // 그룹화된 데이터를 DTO 리스트로 변환
         return groupedByCategory.entrySet()
                 .stream()
                 .map(entry -> {
                     String category = entry.getKey();
-                    // 해당 카테고리에 속하는 태그들의 이름을 추출
-                    List<String> tagNames = entry.getValue()
+
+                    // tagName과 tagId를 Map으로 묶음
+                    Map<String, Long> tagMap = entry.getValue()
                             .stream()
-                            .map(Tag::getName)
-                            .collect(Collectors.toList());
+                            .collect(Collectors.toMap(Tag::getName, Tag::getId));
+
                     return ShowAllTageDTO.builder()
-                            .tagName(tagNames)
+                            .tagMap(tagMap) // tagMap을 저장
                             .categoryName(category)
                             .build();
                 })
