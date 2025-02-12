@@ -17,7 +17,6 @@ public class NoiseService {
 
     private final NoiseRepository noiseRepository;
 
-    // 몇 월 소음 달라고 하면 그거만 주기
     @Transactional
     public GetMonthAvgDecibelResponse showMonthAvgDecibelResponse(LocalDate localDate) {
         Noise noise = noiseRepository.findByCreatedAt(localDate)
