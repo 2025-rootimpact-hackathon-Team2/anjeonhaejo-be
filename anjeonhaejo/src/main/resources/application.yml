@@ -11,7 +11,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update  # RDS에서 테이블 자동 업데이트
     properties:
       hibernate:
         format_sql: true
