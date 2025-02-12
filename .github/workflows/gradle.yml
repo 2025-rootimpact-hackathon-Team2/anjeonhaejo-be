@@ -21,8 +21,11 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for Gradle
-      run: chmod +x ../anjeonhaejo/gradlew
+    - name: Set working directory
+      working-directory: ../anjeonhaejo  # 프로젝트 루트 설정 (여기 수정)
+
+    - name: Grant execute permission for Gradle Wrapper
+      run: chmod +x gradlew
 
     - name: Build with Gradle
       run: ./gradlew build
@@ -31,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: app-jar
-        path: build/libs/*.jar
+        path: ../anjeonhaejo/build/libs/*.jar  # 상대 경로 수정
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,7 +47,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: app-jar
-        path: build/libs/
+        path: ../anjeonhaejo/build/libs/
 
     - name: Set up SSH Key
       uses: webfactory/ssh-agent@v0.5.3
@@ -55,7 +58,7 @@ jobs:
       run: |
         # EC2에 JAR 파일 전송
         scp -o StrictHostKeyChecking=no -i /tmp/ssh_key \
-          build/libs/*.jar ubuntu@15.165.87.88:/home/ubuntu/app.jar
+          ../anjeonhaejo/build/libs/*.jar ubuntu@15.165.87.88:/home/ubuntu/app.jar
         
         # EC2에서 애플리케이션 실행 (startup.sh 사용)
         ssh -o StrictHostKeyChecking=no -i /tmp/ssh_key ubuntu@15.165.87.88 << 'EOF'
