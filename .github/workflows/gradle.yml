@@ -46,7 +46,7 @@ jobs:
     - name: Deploy to EC2
       run: |
         # Copy the built JAR file to the EC2 instance
-        scp -i /tmp/deploy_key ./build/libs/your-application.jar ubuntu@15.165.87.88:/path/to/deployment/folder
+        scp -i /tmp/deploy_key ./build/libs/anjeonhaejo.jar ubuntu@15.165.87.88:/path/to/deployment/folder
         
         # SSH into EC2 and run the JAR file
         ssh -i /tmp/deploy_key ubuntu@15.165.87.88 << 'EOF'
