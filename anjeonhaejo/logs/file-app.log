@@ -130,3 +130,7 @@
 2025-02-13 00:15:03 [Test worker] DEBUG c.r.a.AnjeonhaejoApplicationTests - Running with Spring Boot v3.4.2, Spring v6.2.2
 2025-02-13 00:15:03 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - No active profile set, falling back to 1 default profile: "default"
 2025-02-13 00:15:09 [Test worker] INFO  c.r.a.AnjeonhaejoApplicationTests - Started AnjeonhaejoApplicationTests in 6.633 seconds (process running for 7.1)
+2025-02-13 03:30:20 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 62988 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-13 03:30:20 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13 03:30:20 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-13 03:30:26 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 6.779 seconds (process running for 7.055)
