@@ -3,6 +3,8 @@ package com.rootimpact.anjeonhaejo.controller;
 import com.rootimpact.anjeonhaejo.responseDTO.EmergencyDecibelResponseDTO;
 import com.rootimpact.anjeonhaejo.service.AudioService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +27,12 @@ public class AudioController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 데이터")
     })
     @PostMapping("/upload")
-    public ResponseEntity<EmergencyDecibelResponseDTO> uploadAudio(@RequestParam("file") MultipartFile file,
-                                                     @RequestParam("decibel") double decibel,
-                                                     @RequestParam("workerZone") Long workerZone) {
+    public ResponseEntity<EmergencyDecibelResponseDTO> uploadAudio(
+            @Parameter(description = "업로드할 오디오 파일", required = true, content = @Content(mediaType = "multipart/form-data"))
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("decibel") double decibel,
+            @RequestParam("workerZone") Long workerZone
+    ) {
         System.out.println(decibel);
         System.out.println(workerZone);
         try {
