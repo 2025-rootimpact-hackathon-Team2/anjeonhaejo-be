@@ -8,12 +8,14 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/audio")
 @RequiredArgsConstructor
@@ -33,8 +35,10 @@ public class AudioController {
             @RequestParam("decibel") double decibel,
             @RequestParam("workerZone") Long workerZone
     ) {
-        System.out.println(decibel);
-        System.out.println(workerZone);
+        log.info("class: {}", file.getClass());
+        log.info("content type: {}", file.getContentType());
+        log.info("original file name: {}", file.getOriginalFilename());
+        log.info("resource: {}", file.getResource());
         try {
             EmergencyDecibelResponseDTO result = audioService.analyzeAudio(file, decibel, workerZone);
             return ResponseEntity.ok(result);
