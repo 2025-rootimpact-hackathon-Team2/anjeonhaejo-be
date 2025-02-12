@@ -2,16 +2,16 @@ spring:
   jackson:
     time-zone: Asia/Seoul
   datasource:
-    url: jdbc:mariadb://localhost:3306/anjeon
+    url: jdbc:mariadb://rootimpact2.cp8awcg64bme.ap-northeast-2.rds.amazonaws.com/anjeon
     driver-class-name: org.mariadb.jdbc.Driver
-    username: tatayeon
-    password: 1234
+    username: admin  # RDS MariaDB 사용자명
+    password: xodus0316  # RDS MariaDB 비밀번호
   main:
     allow-bean-definition-overriding: true
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update  # RDS에서 테이블 자동 업데이트
     properties:
       hibernate:
         format_sql: true
@@ -23,8 +23,11 @@ jwt:
 
 django:
   api:
-    url: "http://localhost:8000/api/upload/"
+    url: "http://43.202.242.205:8000/api/upload/"
 
 springdoc:
   swagger-ui:
     path: /api-test
+
+server:
+  port: 8080
