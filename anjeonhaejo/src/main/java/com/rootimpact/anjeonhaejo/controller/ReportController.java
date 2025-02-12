@@ -20,9 +20,9 @@ public class ReportController {
 
     private final ReportService reportService;
 
-    @Operation(summary = "레코드 생성", description = "레코드를 추가합니다.")
+    @Operation(summary = "리포트 생성", description = "리포트를 추가합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "201", description = "레코드 추가 성공"),
+            @ApiResponse(responseCode = "201", description = "리포트 추가 성공"),
             @ApiResponse(responseCode = "400", description = "잘못된 요청 데이터")
     })
     @PostMapping("/create")
