@@ -8,13 +8,14 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
     - uses: actions/checkout@v4
+    
+    - name: Set execute permissions for gradlew
+      run: chmod +x ./gradlew  # 추가된 부분
+
     - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
@@ -26,6 +27,7 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+
 
   deploy:
     runs-on: ubuntu-latest
