@@ -2,7 +2,9 @@ HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!logs/
+!logs/file-app.log
+!logs/myapp.2025-02-12.0.log
+!logs/rolling-app.log
 !**/src/main/**/build/
 !**/src/test/**/build/
 

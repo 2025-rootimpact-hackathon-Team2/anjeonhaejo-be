@@ -21,6 +21,8 @@ public class Report extends BaseTimeEntity {
 
     private String content;
 
+    private String title;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -29,6 +31,9 @@ public class Report extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "workline_id")
     private WorkerLine workerLine;
+
+    @Column(name = "status")
+    private String status;
 
     // Report와 Tag 사이의 ManyToMany 관계 설정
     @OneToMany(mappedBy = "report", cascade = CascadeType.ALL, orphanRemoval = true)

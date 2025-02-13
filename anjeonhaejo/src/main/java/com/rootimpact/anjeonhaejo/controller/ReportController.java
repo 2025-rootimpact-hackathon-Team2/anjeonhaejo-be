@@ -2,6 +2,7 @@ package com.rootimpact.anjeonhaejo.controller;
 
 import com.rootimpact.anjeonhaejo.requestDTO.CreateReportRequestDTO;
 import com.rootimpact.anjeonhaejo.responseDTO.CreateReportResponseDTO;
+import com.rootimpact.anjeonhaejo.responseDTO.ShowAllReportsTotalResponse;
 import com.rootimpact.anjeonhaejo.security.custom.CustomUserDetails;
 import com.rootimpact.anjeonhaejo.service.ReportService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -12,6 +13,9 @@ import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+
+import java.lang.management.LockInfo;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -40,5 +44,8 @@ public class ReportController {
         return reportService.showDetailReport(reportId, user.getUserId());
     }
 
-
+    @GetMapping("")
+    public ResponseEntity<List<ShowAllReportsTotalResponse>> getAllReports() {
+        return ResponseEntity.ok(reportService.showAllReportsTotal());
+    }
 }

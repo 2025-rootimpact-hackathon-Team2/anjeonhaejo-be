@@ -10,8 +10,11 @@ import com.rootimpact.anjeonhaejo.repository.UserRepository;
 import com.rootimpact.anjeonhaejo.repository.WorkerLineRepository;
 import com.rootimpact.anjeonhaejo.requestDTO.CreateReportRequestDTO;
 import com.rootimpact.anjeonhaejo.responseDTO.CreateReportResponseDTO;
+import com.rootimpact.anjeonhaejo.responseDTO.ShowAllReportsTotalResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -77,5 +80,13 @@ public class ReportService {
 
         return ResponseEntity.ok(dto);
     }
-}
 
+    @Transactional
+    public List<ShowAllReportsTotalResponse> showAllReportsTotal() {
+        Pageable pageable = PageRequest.of(0, 3);
+        return reportRepository.findAllByOrderByCreateTimeDesc(pageable)
+                .stream()
+                .map(ShowAllReportsTotalResponse::from)
+                .toList();
+    }
+}
