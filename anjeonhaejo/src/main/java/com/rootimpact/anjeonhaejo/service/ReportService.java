@@ -47,8 +47,9 @@ public class ReportService {
             );
 
             // 태그 추가
-            for (Long tagId : dto.getTagIds()) {
-                Tag tag = tagRepository.findById(tagId).orElse(null);
+            for (String tagName : dto.getTagNames()) {
+                Tag tag = tagRepository.findByName(tagName)
+                        .orElseThrow(null);
                 if (tag != null) {
                     report.addTag(tag);  // 태그 추가
                 }
