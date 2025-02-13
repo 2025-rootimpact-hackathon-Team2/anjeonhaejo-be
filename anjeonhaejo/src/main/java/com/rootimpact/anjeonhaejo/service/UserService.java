@@ -49,7 +49,7 @@ public class UserService {
         User user = userRepository.findUserByEmail(dto.getEmail());
 
         if(user == null){
-            return "you can't use we service";
+            return "you can't use our service";
         }
 
         if(!encoder.matches(dto.getPassword(), user.getPassword())) {

@@ -59,8 +59,7 @@ public class UserContoroller {
         }
 
         insertToken(status);
-        return ResponseEntity.status(HttpStatus.OK).body(status);
-
+        return ResponseEntity.ok("ㅎㅇ");
     }
 
     @Operation(summary = "사용자 로그아웃", description = "사용자가 로그아웃합니다.")

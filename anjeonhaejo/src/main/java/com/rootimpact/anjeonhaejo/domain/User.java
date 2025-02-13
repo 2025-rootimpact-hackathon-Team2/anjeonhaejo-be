@@ -2,6 +2,7 @@ package com.rootimpact.anjeonhaejo.domain;
 
 import com.rootimpact.anjeonhaejo.domain.enumration.RoleType;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -35,6 +36,11 @@ public class User {
 
     private String taskManager;
 
+    private String factory;
+
+    private String department;
+
+
     public User(String username, String userState, String password, String email, RoleType role, String taskManager, WorkerLine workerLine) {
         this.username = username;
         this.userState = userState;
@@ -54,4 +60,28 @@ public class User {
     }
 
 
+    @Builder
+    private User(
+            final String username,
+            final RoleType role,
+            final String factory,
+            final String department
+    ) {
+        this.username = username;
+        this.role = role;
+        this.factory = factory;
+        this.department = department;
+    }
+
+    public void modifyUser(
+            final String username,
+            final RoleType role,
+            final String factory,
+            final String department
+    ) {
+        this.username = username;
+        this.role = role;
+        this.factory = factory;
+        this.department = department;
+    }
 }
