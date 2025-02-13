@@ -2,12 +2,12 @@ package com.rootimpact.anjeonhaejo.responseDTO.noise;
 
 import com.rootimpact.anjeonhaejo.domain.Noise;
 
-public record GetMaxDecibelResponse(
+public record ReadMaxDecibelResponse(
 
         double maxDecibel
 ) {
-    public static GetMaxDecibelResponse from(Noise noise) {
-        return new GetMaxDecibelResponse(
+    public static ReadMaxDecibelResponse from(Noise noise) {
+        return new ReadMaxDecibelResponse(
                 noise.getMaxDecibel()
         );
     }
