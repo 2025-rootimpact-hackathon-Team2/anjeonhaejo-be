@@ -1,21 +1,20 @@
 package com.rootimpact.anjeonhaejo.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class BaseTimeEntity {
-    //이건 시간단위가 필요할 때 사용
 
     @CreatedDate
     @Column(updatable = false)
@@ -24,5 +23,13 @@ public class BaseTimeEntity {
     @LastModifiedDate
     private LocalDateTime lastModifiedTime;
 
+    @PrePersist
+    public void prePersist() {
+        this.createTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul")).toLocalDateTime();
+    }
 
+    @PreUpdate
+    public void preUpdate() {
+        this.lastModifiedTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul")).toLocalDateTime();
+    }
 }
