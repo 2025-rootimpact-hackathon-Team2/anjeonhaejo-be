@@ -1,7 +1,7 @@
 package com.rootimpact.anjeonhaejo.service;
 
 import com.rootimpact.anjeonhaejo.domain.User;
-import com.rootimpact.anjeonhaejo.global.exception.UserNotFoundException;
+import com.rootimpact.anjeonhaejo.global.exception.user.UserNotFoundException;
 import com.rootimpact.anjeonhaejo.repository.UserRepository;
 import com.rootimpact.anjeonhaejo.requestDTO.UpdateUserMyPageRequest;
 import com.rootimpact.anjeonhaejo.responseDTO.ReadUserMyPageResponse;
