@@ -27,12 +27,13 @@ public class SettingService {
         User user = userRepository.findByUsername(request.name());
 
         user.modifyUser(
-                request.name(),
-                request.role(),
-                request.factory(),
-                request.department()
+                request.name() != null ? request.name() : user.getUsername(),
+                request.role() != null ? request.role() : user.getRole(),
+                request.factory() != null ? request.factory() : user.getFactory(),
+                request.department() != null ? request.department() : user.getDepartment()
         );
 
         return userRepository.save(user).getId();
     }
+
 }

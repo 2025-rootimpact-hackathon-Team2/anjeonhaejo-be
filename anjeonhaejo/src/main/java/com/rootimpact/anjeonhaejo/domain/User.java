@@ -79,9 +79,18 @@ public class User {
             final String factory,
             final String department
     ) {
-        this.username = username;
-        this.role = role;
-        this.factory = factory;
-        this.department = department;
+        if (username != null) {
+            this.username = username;
+        }
+        if (role != null) {
+            this.role = role;
+        }
+        if (factory != null) {
+            this.factory = factory;
+        }
+        if (department != null) {
+            this.department = department;
+        }
     }
+
 }
