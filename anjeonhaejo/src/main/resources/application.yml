@@ -1,6 +1,7 @@
 spring:
   jackson:
     time-zone: Asia/Seoul
+
   datasource:
     url: jdbc:mariadb://rootimpact2.cp8awcg64bme.ap-northeast-2.rds.amazonaws.com/anjeon
     driver-class-name: org.mariadb.jdbc.Driver
@@ -15,6 +16,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        jdbc.time_zone: Asia/Seoul
     show-sql: true
 
 jwt:
