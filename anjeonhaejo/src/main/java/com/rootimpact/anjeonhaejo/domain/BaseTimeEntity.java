@@ -1,6 +1,5 @@
 package com.rootimpact.anjeonhaejo.domain;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
