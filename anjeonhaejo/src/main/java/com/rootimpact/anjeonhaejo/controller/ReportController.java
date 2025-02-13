@@ -51,7 +51,7 @@ public class ReportController {
     @GetMapping("")
     public ResponseEntity<List<ShowAllReportsTotalResponse>> getAllReports(
             @RequestParam(name = "page", defaultValue = "0")
-            @PositiveOrZero(message = "페이지 수는 0이상인 정수만 가능합니다.") final int page
+            @PositiveOrZero(message = "페이지 수는 0 이상인 정수만 가능합니다.") final int page
     ) {
         return ResponseEntity.ok(reportService.showAllReportsTotal(page));
     }
