@@ -1,6 +1,7 @@
 package com.rootimpact.anjeonhaejo.service;
 
 import com.rootimpact.anjeonhaejo.domain.User;
+import com.rootimpact.anjeonhaejo.global.exception.UserNotFoundException;
 import com.rootimpact.anjeonhaejo.repository.UserRepository;
 import com.rootimpact.anjeonhaejo.requestDTO.UpdateUserMyPageRequest;
 import com.rootimpact.anjeonhaejo.responseDTO.ReadUserMyPageResponse;
@@ -25,7 +26,7 @@ public class SettingService {
     @Transactional
     public ReadUserMyPageResponse showMyPageByEmail(String email) {
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("그런 유저 없어 !!"));
+                .orElseThrow(() -> new UserNotFoundException("그런 유저 없어 !!"));
 
         return ReadUserMyPageResponse.from(user);
     }
