@@ -85,22 +85,6 @@ public class ReportService {
     }
 
     @Transactional
-    public List<ShowAllReportsTotalResponse> showAllReportsTotal(int page) {
-        Pageable pageable = PageRequest.of(page, 3);
-
-        Page<Report> reportsPage = reportRepository.findAllByOrderByCreateTimeDesc(pageable);
-
-        return reportsPage.getContent().stream()
-                .map(ShowAllReportsTotalResponse::from)
-                .toList();
-
-//        return reportRepository.findAllByOrderByCreateTimeDesc(pageable)
-//                .stream()
-//                .map(ShowAllReportsTotalResponse::from)
-//                .toList();
-    }
-
-    @Transactional
     public ShowAllReportsWithTotalPageResponse showAllReportsWithTotalPage(int page) {
         Pageable pageable = PageRequest.of(page, 3);
 
