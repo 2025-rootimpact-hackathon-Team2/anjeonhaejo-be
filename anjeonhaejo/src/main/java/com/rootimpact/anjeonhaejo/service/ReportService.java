@@ -11,6 +11,7 @@ import com.rootimpact.anjeonhaejo.repository.WorkerLineRepository;
 import com.rootimpact.anjeonhaejo.requestDTO.CreateReportRequestDTO;
 import com.rootimpact.anjeonhaejo.responseDTO.CreateReportResponseDTO;
 import com.rootimpact.anjeonhaejo.responseDTO.ShowAllReportsTotalResponse;
+import com.rootimpact.anjeonhaejo.responseDTO.ShowAllReportsWithTotalPageResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -97,5 +98,20 @@ public class ReportService {
 //                .stream()
 //                .map(ShowAllReportsTotalResponse::from)
 //                .toList();
+    }
+
+    @Transactional
+    public ShowAllReportsWithTotalPageResponse showAllReportsWithTotalPage(int page) {
+        Pageable pageable = PageRequest.of(page, 3);
+
+        Page<Report> reportsPage = reportRepository.findAllByOrderByCreateTimeDesc(pageable);
+
+        int totalPage = reportsPage.getTotalPages();
+
+        List<ShowAllReportsTotalResponse> reports = reportsPage.getContent().stream()
+                .map(ShowAllReportsTotalResponse::from)
+                .toList();
+
+        return ShowAllReportsWithTotalPageResponse.of(totalPage, reports);
     }
 }

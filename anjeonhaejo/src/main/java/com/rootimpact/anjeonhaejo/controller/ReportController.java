@@ -3,6 +3,7 @@ package com.rootimpact.anjeonhaejo.controller;
 import com.rootimpact.anjeonhaejo.requestDTO.CreateReportRequestDTO;
 import com.rootimpact.anjeonhaejo.responseDTO.CreateReportResponseDTO;
 import com.rootimpact.anjeonhaejo.responseDTO.ShowAllReportsTotalResponse;
+import com.rootimpact.anjeonhaejo.responseDTO.ShowAllReportsWithTotalPageResponse;
 import com.rootimpact.anjeonhaejo.security.custom.CustomUserDetails;
 import com.rootimpact.anjeonhaejo.service.ReportService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -49,10 +50,10 @@ public class ReportController {
 
     @Operation(summary = "이번 달 안전 보고서 페이지(3개씩) 줍니다 ~", description = "이번 달 안전 보고서 페이지를 줄게요 ~ 대신 페이지는 직접 0부터 입력하세요 ~")
     @GetMapping("")
-    public ResponseEntity<List<ShowAllReportsTotalResponse>> getAllReports(
+    public ResponseEntity<ShowAllReportsWithTotalPageResponse> getAllReports(
             @RequestParam(name = "page", defaultValue = "0")
             @PositiveOrZero(message = "페이지 수는 0 이상인 정수만 가능합니다.") final int page
     ) {
-        return ResponseEntity.ok(reportService.showAllReportsTotal(page));
+        return ResponseEntity.ok(reportService.showAllReportsWithTotalPage(page));
     }
 }
