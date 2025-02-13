@@ -50,11 +50,12 @@ public class Report extends BaseTimeEntity {
     public void addTag(Tag tag) {
         ReportTagMap reportTagMap = new ReportTagMap(this, tag);
         this.tagMap.add(reportTagMap);
+        tag.getReportMap().add(reportTagMap);
     }
 
     // 태그 제거 메서드
     public void removeTag(Tag tag) {
-        ReportTagMap reportTagMap = new ReportTagMap(this, tag);
-        this.tagMap.remove(reportTagMap);
+        tagMap.removeIf(reportTagMap -> reportTagMap.getTag().equals(tag));
+        tag.getReportMap().removeIf(reportTagMap -> reportTagMap.getReport().equals(this));
     }
 }

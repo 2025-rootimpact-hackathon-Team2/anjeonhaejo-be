@@ -28,17 +28,17 @@ public class Tag extends BaseTimeEntity {
     @OneToMany(mappedBy = "tag", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ReportTagMap> reportMap = new HashSet<>();
 
+    @Builder
+    public Tag(String name, String category) {
+        this.name = name;
+        this.category = category;
+    }
+
     public void updateName(String newName) {
         this.name = newName;
     }
 
     public void updateCategory(String newCategory) {
         this.category = newCategory;
-    }
-
-    @Builder
-    public Tag(String name, String category) {
-        this.name = name;
-        this.category = category;
     }
 }

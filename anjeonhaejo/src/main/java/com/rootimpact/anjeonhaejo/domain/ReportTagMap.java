@@ -1,12 +1,14 @@
 package com.rootimpact.anjeonhaejo.domain;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"report", "tag"})
 public class ReportTagMap {
 
     @Id
