@@ -5,16 +5,12 @@ import jakarta.annotation.Nullable;
 
 public record UpdateUserMyPageRequest(
 
-        @Nullable
         String name,
 
-        @Nullable
         String factory,
 
-        @Nullable
         RoleType role,
 
-        @Nullable
         String department
 ) {
 }

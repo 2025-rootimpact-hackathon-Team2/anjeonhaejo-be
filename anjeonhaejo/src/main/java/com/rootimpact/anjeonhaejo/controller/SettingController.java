@@ -22,8 +22,10 @@ public class SettingController {
     }
 
     @PutMapping("/mypage/{userId}")
-    public ResponseEntity<Void> updateUserMyPage(UpdateUserMyPageRequest request) {
-        Long userId = settingService.modifyUserMyPage(request);
-        return ResponseEntity.created(URI.create("/api/v1/mypage/" + userId)).build();
+    public ResponseEntity<Void> updateUserMyPage(
+            @PathVariable Long userId,
+            @RequestBody UpdateUserMyPageRequest request) {
+        Long id = settingService.modifyUserMyPage(userId, request);
+        return ResponseEntity.created(URI.create("/api/v1/mypage/" + id)).build();
     }
 }

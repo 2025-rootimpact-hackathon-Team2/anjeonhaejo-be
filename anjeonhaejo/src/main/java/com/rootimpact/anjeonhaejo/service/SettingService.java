@@ -31,8 +31,9 @@ public class SettingService {
     }
 
     @Transactional
-    public Long modifyUserMyPage(UpdateUserMyPageRequest request) {
-        User user = userRepository.findByUsername(request.name());
+    public Long modifyUserMyPage(Long id, UpdateUserMyPageRequest request) {
+        User user = userRepository.findById(id)
+                .orElseThrow();
 
         user.modifyUser(
                 request.name() != null ? request.name() : user.getUsername(),
