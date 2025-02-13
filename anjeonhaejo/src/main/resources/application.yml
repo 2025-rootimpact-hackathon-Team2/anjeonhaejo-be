@@ -33,3 +33,8 @@ springdoc:
 
 server:
   port: 8080
+  ssl:
+#    enabled: true
+#    key-store: arn:aws:acm:ap-northeast-2:891376917825:certificate/f4b701fc-8d9a-47f8-8fea-24fa6e19b8d1  # 인증서 파일 (p12 또는 jks)
+#    key-store-password: your-password
+#    key-store-type: PKCS12
