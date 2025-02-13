@@ -8,10 +8,12 @@ import com.rootimpact.anjeonhaejo.service.ReportService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.management.LockInfo;
@@ -20,6 +22,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/report")
+@Validated
 public class ReportController {
 
     private final ReportService reportService;
@@ -46,7 +49,10 @@ public class ReportController {
 
     @Operation(summary = "이번 달 안전 보고서 페이지(3개씩) 줍니다 ~", description = "이번 달 안전 보고서 페이지를 줄게요 ~")
     @GetMapping("")
-    public ResponseEntity<List<ShowAllReportsTotalResponse>> getAllReports() {
-        return ResponseEntity.ok(reportService.showAllReportsTotal());
+    public ResponseEntity<List<ShowAllReportsTotalResponse>> getAllReports(
+            @RequestParam(name = "page", defaultValue = "0")
+            @PositiveOrZero(message = "페이지 수는 0이상인 정수만 가능합니다.") final int page
+    ) {
+        return ResponseEntity.ok(reportService.showAllReportsTotal(page));
     }
 }
