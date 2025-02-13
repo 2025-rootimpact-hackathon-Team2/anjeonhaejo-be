@@ -4,10 +4,10 @@ import java.util.List;
 
 public record ReadDailyAveragePerMonthDecibelResponse(
 
-        List<ReadDayAvgDecibelAResponse> dailyAverageDecibelAs,
-        List<ReadDayAvgDecibelBResponse> dailyAverageDecibelBs,
-        List<ReadDayAvgDecibelCResponse> dailyAverageDecibelCs,
-        List<ReadDayAvgDecibelDResponse> dailyAverageDecibelDs
+        List<ReadDayAvgDecibelAResponse> dailyAverageDecibelA,
+        List<ReadDayAvgDecibelBResponse> dailyAverageDecibelB,
+        List<ReadDayAvgDecibelCResponse> dailyAverageDecibelC,
+        List<ReadDayAvgDecibelDResponse> dailyAverageDecibelD
 ) {
 
     public static ReadDailyAveragePerMonthDecibelResponse of(
