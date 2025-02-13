@@ -27,7 +27,7 @@ public class NoiseController {
     @Operation(summary = "월 평균 데시벨 조회", description = "특정 월의 평균 소음 데시벨을 조회합니다.")
     @GetMapping("/average")
     public ResponseEntity<ReadMonthAvgDecibelResponse> getMonthAvgDecibel(
-            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2024-02-12")
+            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2025-02-12")
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
     ) {
         return ResponseEntity.ok(noiseService.showMonthAvgDecibelResponse(date));
@@ -36,7 +36,7 @@ public class NoiseController {
     @Operation(summary = "최대 데시벨 조회", description = "특정 월의 최대 소음 데시벨을 조회합니다.")
     @GetMapping("/max")
     public ResponseEntity<ReadMaxDecibelResponse> getMaxDecibel(
-            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2024-02-12")
+            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2025-02-12")
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return ResponseEntity.ok(noiseService.showMaxDecibelResponse(date));
     }
@@ -44,7 +44,7 @@ public class NoiseController {
     @Operation(summary = "최소 데시벨 조회", description = "특정 월의 최소 소음 데시벨을 조회합니다.")
     @GetMapping("/min")
     public ResponseEntity<ReadMinDecibelResponse> getMinDecibel(
-            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2024-02-12")
+            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2025-02-12")
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return ResponseEntity.ok(noiseService.showMinDecibelResponse(date));
     }
@@ -52,7 +52,7 @@ public class NoiseController {
     @Operation(summary = "월별 전체 일자 각 평균 데시벨 조회", description = "특정 월의 전체 일자별 각 평균 소음 데시벨을 조회합니다.")
     @GetMapping("/trend")
     public ResponseEntity<ReadDailyAveragePerMonthDecibelResponse> getDayPerMonthAvgDecibel(
-            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2024-02-12")
+            @Parameter(description = "조회할 날짜 (yyyy-MM-dd 형식)", example = "2025-02-12")
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
     ) {
         return ResponseEntity.ok(noiseService.showDayPerMonthAvgDecibelResponse(date));
