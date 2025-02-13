@@ -47,7 +47,7 @@ public class ReportController {
         return reportService.showDetailReport(reportId, user.getUserId());
     }
 
-    @Operation(summary = "이번 달 안전 보고서 페이지(3개씩) 줍니다 ~", description = "이번 달 안전 보고서 페이지를 줄게요 ~")
+    @Operation(summary = "이번 달 안전 보고서 페이지(3개씩) 줍니다 ~", description = "이번 달 안전 보고서 페이지를 줄게요 ~ 대신 페이지는 직접 0부터 입력하세요 ~")
     @GetMapping("")
     public ResponseEntity<List<ShowAllReportsTotalResponse>> getAllReports(
             @RequestParam(name = "page", defaultValue = "0")
