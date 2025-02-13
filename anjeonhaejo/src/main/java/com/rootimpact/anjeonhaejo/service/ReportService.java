@@ -51,7 +51,7 @@ public class ReportService {
                 .title(dto.getTagNames().getFirst())
                 .user(user)
                 .workerLine(workerLine)
-                .status(dto.getStatus())
+                .status("즉각 조치 필요")
                 .build();
 
         report = reportRepository.save(report); // ✅ 먼저 저장
@@ -60,7 +60,7 @@ public class ReportService {
         Set<String> uniqueTags = new HashSet<>(dto.getTagNames()); // 중복 방지
         for (String tagName : uniqueTags) {
             Tag tag = tagRepository.findByName(tagName)
-                    .orElseGet(() -> tagRepository.save(new Tag(tagName, "default")));
+                    .orElseGet(() -> tagRepository.save(new Tag(tagName, "")));
 
             report.addTag(tag);
         }
