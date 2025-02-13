@@ -23,6 +23,14 @@ public class SettingService {
     }
 
     @Transactional
+    public ReadUserMyPageResponse showMyPageByEmail(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("그런 유저 없어 !!"));
+
+        return ReadUserMyPageResponse.from(user);
+    }
+
+    @Transactional
     public Long modifyUserMyPage(UpdateUserMyPageRequest request) {
         User user = userRepository.findByUsername(request.name());
 

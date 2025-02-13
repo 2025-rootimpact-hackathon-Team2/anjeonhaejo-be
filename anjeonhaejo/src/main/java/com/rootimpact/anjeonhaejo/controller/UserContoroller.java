@@ -3,6 +3,8 @@ package com.rootimpact.anjeonhaejo.controller;
 
 import com.rootimpact.anjeonhaejo.requestDTO.LoginDTO;
 import com.rootimpact.anjeonhaejo.requestDTO.RequestRegisterDTO;
+import com.rootimpact.anjeonhaejo.responseDTO.ReadUserMyPageResponse;
+import com.rootimpact.anjeonhaejo.service.SettingService;
 import com.rootimpact.anjeonhaejo.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,6 +14,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +23,16 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Objects;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserContoroller {
 
     private final UserService userService;
+    private final SettingService settingService;
 
     @Operation(summary = "사용자 생성", description = "사용자를 생성합니다.")
     @ApiResponses({
@@ -49,17 +55,16 @@ public class UserContoroller {
             @ApiResponse(responseCode = "200", description = "사용자 로그인 성공"),
             @ApiResponse(responseCode = "401", description = "잘못된 요청 데이터")
     })
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDTO dto){
-        System.out.println("controller = " + dto.getEmail());
-        String status = userService.login(dto);
 
-        if(status.equals("user not found") || status.equals("password error")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(status);
+    @PostMapping("/login")
+    public ResponseEntity<ReadUserMyPageResponse> login(@RequestBody LoginDTO dto) {
+        log.info("email: {}, password: {}", dto.getEmail(), dto.getPassword());
+
+        if (Objects.nonNull(settingService.showMyPageByEmail(dto.getEmail()))) {
+            return ResponseEntity.ok(settingService.showMyPageByEmail(dto.getEmail()));
         }
 
-        insertToken(status);
-        return ResponseEntity.ok("ㅎㅇ");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @Operation(summary = "사용자 로그아웃", description = "사용자가 로그아웃합니다.")

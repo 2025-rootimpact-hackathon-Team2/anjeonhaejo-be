@@ -14,6 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -73,5 +76,21 @@ public class UserService {
         }
     }
 
+    @Transactional
+    public void checkUserByEmailAndPassword(LoginDTO dto) {
+        Optional<User> user = userRepository.findByEmail(dto.getEmail());
 
+        if (user.isEmpty() || !user.get().getPassword().equals(dto.getPassword())) {
+            throw new RuntimeException("이메일이 잘못되었습니다.");
+        }
+    }
+
+    @Transactional
+    public void checkUserByPassword(LoginDTO dto) {
+        Optional<User> user = userRepository.findByPassword(dto.getPassword());
+
+        if (user.isEmpty()) {
+            throw new RuntimeException("비밀번호가 잘못되었습니다.");
+        }
+    }
 }
