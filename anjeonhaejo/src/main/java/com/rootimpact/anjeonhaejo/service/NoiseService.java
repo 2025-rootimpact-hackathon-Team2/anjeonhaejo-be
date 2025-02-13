@@ -48,14 +48,14 @@ public class NoiseService {
 
     @Transactional
     public ReadMaxDecibelResponse showMaxDecibelResponse(LocalDate localDate) {
-        Noise noise = noiseRepository.findByCreatedAt(localDate)
+        Noise noise = noiseRepository.findTopByCreatedAtOrderByMaxDecibelDesc(localDate)
                 .orElseThrow();
         return ReadMaxDecibelResponse.from(noise);
     }
 
     @Transactional
     public ReadMinDecibelResponse showMinDecibelResponse(LocalDate localDate) {
-        Noise noise = noiseRepository.findByCreatedAt(localDate)
+        Noise noise = noiseRepository.findTopByCreatedAtOrderByMinDecibelAsc(localDate)
                 .orElseThrow();
         return ReadMinDecibelResponse.from(noise);
     }

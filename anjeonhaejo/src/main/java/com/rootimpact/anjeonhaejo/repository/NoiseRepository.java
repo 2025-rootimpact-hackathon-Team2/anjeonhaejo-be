@@ -13,6 +13,10 @@ public interface NoiseRepository extends JpaRepository<Noise, Long> {
 
     Optional<Noise> findByCreatedAt(LocalDate localDate);
 
+    Optional<Noise> findTopByCreatedAtOrderByMaxDecibelDesc(LocalDate localDate);
+
+    Optional<Noise> findTopByCreatedAtOrderByMinDecibelAsc(LocalDate localDate);
+
     List<Noise> findAllByCreatedAt(LocalDate localDate);
 
     @Query("SELECT n FROM Noise n WHERE YEAR(n.createdAt) = :year AND MONTH(n.createdAt) = :month")
