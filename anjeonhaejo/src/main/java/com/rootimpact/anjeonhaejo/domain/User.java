@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,13 +52,10 @@ public class User {
         this.workerLine = workerLine;
     }
 
+    @Setter
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "worker_line_id")
     private WorkerLine workerLine;
-
-    public void setWorkerLine(WorkerLine workerLine) {
-        this.workerLine = workerLine;
-    }
 
 
     @Builder
@@ -79,18 +77,9 @@ public class User {
             final String factory,
             final String department
     ) {
-        if (username != null) {
-            this.username = username;
-        }
-        if (role != null) {
-            this.role = role;
-        }
-        if (factory != null) {
-            this.factory = factory;
-        }
-        if (department != null) {
-            this.department = department;
-        }
+        this.username = username;
+        this.role = role;
+        this.factory = factory;
+        this.department = department;
     }
-
 }
