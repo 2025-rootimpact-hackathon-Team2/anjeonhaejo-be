@@ -29,4 +29,6 @@ public class Noise {
     private double monthAverageDecibel;
 
     private LocalDate createdAt;
+
+    private String zone;
 }
