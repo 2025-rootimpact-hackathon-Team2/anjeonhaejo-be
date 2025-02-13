@@ -243,7 +243,7 @@ public class AudioService {
                 .map(audioAnalysis -> new EmergencyDecibelResponseDTO(
                         audioAnalysis.getCreateTime(),
                         audioAnalysis.getWorkerZone(),
-                        audioAnalysis.getDecibel(),
+                        Math.round(audioAnalysis.getDecibel() * 10) / 10.0,
                         audioAnalysis.getSoundClass(),
                         audioAnalysis.getTranscription()
                 ))
