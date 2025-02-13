@@ -4,6 +4,7 @@ package com.rootimpact.anjeonhaejo.controller;
 import com.rootimpact.anjeonhaejo.requestDTO.LoginDTO;
 import com.rootimpact.anjeonhaejo.requestDTO.RequestRegisterDTO;
 import com.rootimpact.anjeonhaejo.responseDTO.ReadUserMyPageResponse;
+import com.rootimpact.anjeonhaejo.security.jwt.JwtAuthFilter;
 import com.rootimpact.anjeonhaejo.service.SettingService;
 import com.rootimpact.anjeonhaejo.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -58,6 +59,12 @@ public class UserContoroller {
     @PostMapping("/login")
     public ResponseEntity<ReadUserMyPageResponse> login(@RequestBody LoginDTO dto) {
         log.info("email: {}, password: {}", dto.getEmail(), dto.getPassword());
+        String token = userService.login(dto);
+        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
+        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
+        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
+        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
+        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
 
         if (Objects.nonNull(settingService.showMyPageByEmail(dto.getEmail()))) {
             return ResponseEntity.ok(settingService.showMyPageByEmail(dto.getEmail()));

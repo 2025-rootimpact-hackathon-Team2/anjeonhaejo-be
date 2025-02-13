@@ -21,7 +21,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -36,40 +38,45 @@ public class ReportService {
     private final TagRepository tagRepository;  // TagRepository 추가
 
     @Transactional
-    public String createReport(Long userId, CreateReportRequestDTO dto) {
+    public Long createReport(Long userId, CreateReportRequestDTO dto) {
+        WorkerLine workerLine = wlRepository.findById(dto.getWorkerLineId())
+                .orElseThrow(() -> new IllegalArgumentException("작업 라인을 찾을 수 없습니다. ID: " + dto.getWorkerLineId()));
 
-        WorkerLine workerLine = wlRepository.findById(dto.getWorkerLineId()).orElse(null);
-        User user = userRepository.findById(userId).orElse(null);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다. ID: " + userId));
 
-        if (workerLine != null && user != null) {
-            Report report = new Report(
-                    dto.getContent(),
-                    user,
-                    workerLine
-            );
+        // 1. 먼저 Report 저장
+        Report report = Report.builder()
+                .content(dto.getContent())
+                .title(dto.getTagNames().getFirst())
+                .user(user)
+                .workerLine(workerLine)
+                .status(dto.getStatus())
+                .build();
 
-            // 태그 추가
-            for (String tagName : dto.getTagNames()) {
-                Tag tag = tagRepository.findByName(tagName)
-                        .orElseThrow(null);
-                if (tag != null) {
-                    report.addTag(tag);  // 태그 추가
-                }
-            }
+        report = reportRepository.save(report); // ✅ 먼저 저장
 
-            reportRepository.save(report);
-            return "Good";
-        } else {
-            return "Bad";
+        // 2. 태그 추가 후 저장
+        Set<String> uniqueTags = new HashSet<>(dto.getTagNames()); // 중복 방지
+        for (String tagName : uniqueTags) {
+            Tag tag = tagRepository.findByName(tagName)
+                    .orElseGet(() -> tagRepository.save(new Tag(tagName, "default")));
+
+            report.addTag(tag);
         }
+
+        reportRepository.save(report); // ✅ 태그 추가 후 다시 저장
+
+        return report.getId();
     }
+
 
     @Transactional
     public ResponseEntity<CreateReportResponseDTO> showDetailReport(Long reportId, Long userId) {
         Report report = reportRepository.findById(reportId).orElse(null);
 
         // 태그 이름 목록을 가져오기
-        List<String> tagNames = report.getTagMap().stream()  // getTagMap()을 사용하여 태그를 가져옴
+        List<String> tagNames = report.getReportTags().stream()  // getTagMap()을 사용하여 태그를 가져옴
                 .map(reportTagMap -> reportTagMap.getTag() != null ? reportTagMap.getTag().getName() : "")  // tag에 직접 접근하여 이름을 추출
                 .collect(Collectors.toList());
 

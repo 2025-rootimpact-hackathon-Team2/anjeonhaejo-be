@@ -14,6 +14,8 @@ public class CreateReportRequestDTO {
     @Schema(description = "작업 라인 아이디", example = "1(A)")
     private Long workerLineId;
 
+    private String status;
+
     @Schema(description = "태그 이름 목록", example = "[]")
     private List<String> tagNames;  // 태그 이름 목록
 

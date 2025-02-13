@@ -6,7 +6,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,7 +28,7 @@ public class Tag extends BaseTimeEntity {
     private String category;
 
     @OneToMany(mappedBy = "tag", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<ReportTagMap> reportMap = new HashSet<>();
+    private List<ReportTagMap> reportTags = new ArrayList<>();
 
     @Builder
     public Tag(String name, String category) {

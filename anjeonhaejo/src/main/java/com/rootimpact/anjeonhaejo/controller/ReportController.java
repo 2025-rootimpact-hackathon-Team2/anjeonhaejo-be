@@ -18,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.management.LockInfo;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -34,8 +35,14 @@ public class ReportController {
             @ApiResponse(responseCode = "400", description = "잘못된 요청 데이터")
     })
     @PostMapping("/create")
-    public String addRecord(@RequestBody CreateReportRequestDTO dto, @AuthenticationPrincipal CustomUserDetails user) throws ChangeSetPersister.NotFoundException {
-        return reportService.createReport(user.getUserId(), dto);
+    public ResponseEntity<Void> addReport(
+            @RequestBody CreateReportRequestDTO dto,
+//            @AuthenticationPrincipal CustomUserDetails user
+            @RequestParam Long userId
+    ) {
+//        Long id = reportService.createReport(user.getUserId(), dto);
+        Long id = reportService.createReport(userId, dto);
+        return ResponseEntity.created(URI.create("/report/create/" + id)).build();
     }
 
     @Operation(summary = "리포트 조회", description = "단일 상세 리포트를 조회합니다.")

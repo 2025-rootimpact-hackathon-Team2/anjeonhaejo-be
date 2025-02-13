@@ -411,3 +411,90 @@
 2025-02-14 01:48:38 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
 2025-02-14 01:48:38 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
 2025-02-14 01:48:40 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 2.185 seconds (process running for 1467.179)
+2025-02-14 01:52:23 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 77417 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 01:52:23 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 01:52:23 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 01:52:25 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 2.356 seconds (process running for 1692.769)
+2025-02-14 02:00:29 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 78294 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:00:29 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:00:29 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:00:33 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.366 seconds (process running for 4.639)
+2025-02-14 02:04:22 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 78439 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:04:22 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:04:22 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:04:26 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.118 seconds (process running for 4.386)
+2025-02-14 02:05:56 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 78467 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:05:56 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:05:56 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:06:00 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.122 seconds (process running for 4.387)
+2025-02-14 02:06:07 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 78478 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:06:07 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:06:07 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:06:11 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.2 seconds (process running for 4.45)
+2025-02-14 02:11:38 [http-nio-8080-exec-4] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:18:57 [http-nio-8080-exec-7] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:22:03 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 78860 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:22:03 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:22:03 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:22:07 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.127 seconds (process running for 4.394)
+2025-02-14 02:22:19 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:27:05 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 78979 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:27:05 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:27:05 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:27:08 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 3.865 seconds (process running for 4.123)
+2025-02-14 02:27:15 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:31:35 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79078 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:31:35 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:31:35 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:31:39 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.225 seconds (process running for 4.485)
+2025-02-14 02:31:43 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:32:11 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79090 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:32:11 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:32:11 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:32:15 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.01 seconds (process running for 4.271)
+2025-02-14 02:32:19 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:32:19 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njc5MzksImV4cCI6NDMzMTQ2NzkzOX0.ElQ-MeRfzcuBKBtIZJDKtiIihO_PLV3Vt1o4-FCsqQE
+2025-02-14 02:32:19 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njc5MzksImV4cCI6NDMzMTQ2NzkzOX0.ElQ-MeRfzcuBKBtIZJDKtiIihO_PLV3Vt1o4-FCsqQE
+2025-02-14 02:32:19 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njc5MzksImV4cCI6NDMzMTQ2NzkzOX0.ElQ-MeRfzcuBKBtIZJDKtiIihO_PLV3Vt1o4-FCsqQE
+2025-02-14 02:32:19 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njc5MzksImV4cCI6NDMzMTQ2NzkzOX0.ElQ-MeRfzcuBKBtIZJDKtiIihO_PLV3Vt1o4-FCsqQE
+2025-02-14 02:32:19 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njc5MzksImV4cCI6NDMzMTQ2NzkzOX0.ElQ-MeRfzcuBKBtIZJDKtiIihO_PLV3Vt1o4-FCsqQE
+2025-02-14 02:40:50 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79298 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:40:50 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:40:50 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:40:54 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 3.96 seconds (process running for 4.224)
+2025-02-14 02:41:03 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:41:03 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg0NjMsImV4cCI6NDMzMTQ2ODQ2M30.SL1R42W3N244OhjMnL73HpPtB3_gilP-FcDoLCql63E
+2025-02-14 02:41:03 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg0NjMsImV4cCI6NDMzMTQ2ODQ2M30.SL1R42W3N244OhjMnL73HpPtB3_gilP-FcDoLCql63E
+2025-02-14 02:41:03 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg0NjMsImV4cCI6NDMzMTQ2ODQ2M30.SL1R42W3N244OhjMnL73HpPtB3_gilP-FcDoLCql63E
+2025-02-14 02:41:03 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg0NjMsImV4cCI6NDMzMTQ2ODQ2M30.SL1R42W3N244OhjMnL73HpPtB3_gilP-FcDoLCql63E
+2025-02-14 02:41:03 [http-nio-8080-exec-2] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg0NjMsImV4cCI6NDMzMTQ2ODQ2M30.SL1R42W3N244OhjMnL73HpPtB3_gilP-FcDoLCql63E
+2025-02-14 02:48:33 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79298 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:48:33 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:48:33 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:48:35 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 2.322 seconds (process running for 465.654)
+2025-02-14 02:48:52 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79540 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:48:52 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:48:52 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:48:57 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 5.717 seconds (process running for 6.045)
+2025-02-14 02:49:03 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - email: test1234556@naver.com, password: 1234
+2025-02-14 02:49:03 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg5NDMsImV4cCI6NDMzMTQ2ODk0M30.r8P7pA5HaUwnNndjlqhUe83O6tkvkwhF6Odwcxaryk0
+2025-02-14 02:49:03 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg5NDMsImV4cCI6NDMzMTQ2ODk0M30.r8P7pA5HaUwnNndjlqhUe83O6tkvkwhF6Odwcxaryk0
+2025-02-14 02:49:03 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg5NDMsImV4cCI6NDMzMTQ2ODk0M30.r8P7pA5HaUwnNndjlqhUe83O6tkvkwhF6Odwcxaryk0
+2025-02-14 02:49:03 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg5NDMsImV4cCI6NDMzMTQ2ODk0M30.r8P7pA5HaUwnNndjlqhUe83O6tkvkwhF6Odwcxaryk0
+2025-02-14 02:49:03 [http-nio-8080-exec-1] INFO  c.r.a.controller.UserContoroller - 바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjExMywidXNlck5hbWUiOiLsoITrpqzqt5whIiwicm9sZSI6Ik1BTkFHRVIiLCJpYXQiOjE3Mzk0Njg5NDMsImV4cCI6NDMzMTQ2ODk0M30.r8P7pA5HaUwnNndjlqhUe83O6tkvkwhF6Odwcxaryk0
+2025-02-14 02:51:49 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79540 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:51:49 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:51:49 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:51:52 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 2.691 seconds (process running for 180.329)
+2025-02-14 02:55:54 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79653 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:55:54 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:55:54 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:55:58 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 4.129 seconds (process running for 4.452)
+2025-02-14 02:59:42 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79653 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 02:59:42 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 02:59:42 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 02:59:49 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 7.527 seconds (process running for 235.157)
+2025-02-14 03:00:57 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Starting AnjeonhaejoApplication using Java 21.0.5 with PID 79750 (/Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo/build/classes/java/main started by jsh14 in /Users/jsh14/Work/rootimpact/anjeonhaejo-be/anjeonhaejo)
+2025-02-14 03:00:57 [restartedMain] DEBUG c.r.a.AnjeonhaejoApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-14 03:00:57 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-14 03:01:04 [restartedMain] INFO  c.r.a.AnjeonhaejoApplication - Started AnjeonhaejoApplication in 6.973 seconds (process running for 7.25)

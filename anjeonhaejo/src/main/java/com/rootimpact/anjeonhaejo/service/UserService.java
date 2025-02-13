@@ -61,7 +61,6 @@ public class UserService {
 
         CustomUserInfoDto customUserInfoDto = new CustomUserInfoDto(user.getId(), user.getUsername(), user.getPassword(), user.getRole());
         return jwtUtil.createAccessToken(customUserInfoDto);
-
     }
 
 

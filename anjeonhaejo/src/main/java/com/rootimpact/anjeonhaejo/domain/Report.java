@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,25 +39,27 @@ public class Report extends BaseTimeEntity {
 
     // Report와 Tag 사이의 ManyToMany 관계 설정
     @OneToMany(mappedBy = "report", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<ReportTagMap> tagMap = new HashSet<>();
+    private final List<ReportTagMap> reportTags = new ArrayList<>();
 
     @Builder
-    public Report(String content, User user, WorkerLine workerLine) {
+    public Report(String content, String title, User user, WorkerLine workerLine, String status) {
         this.content = content;
+        this.title = title;
         this.user = user;
         this.workerLine = workerLine;
+        this.status = status;
     }
 
     // 태그 추가 메서드
     public void addTag(Tag tag) {
         ReportTagMap reportTagMap = new ReportTagMap(this, tag);
-        this.tagMap.add(reportTagMap);
-        tag.getReportMap().add(reportTagMap);
+        this.reportTags.add(reportTagMap);
+        tag.getReportTags().add(reportTagMap);
     }
 
     // 태그 제거 메서드
     public void removeTag(Tag tag) {
-        tagMap.removeIf(reportTagMap -> reportTagMap.getTag().equals(tag));
-        tag.getReportMap().removeIf(reportTagMap -> reportTagMap.getReport().equals(this));
+        reportTags.removeIf(reportTagMap -> reportTagMap.getTag().equals(tag));
+        tag.getReportTags().removeIf(reportTagMap -> reportTagMap.getReport().equals(this));
     }
 }
