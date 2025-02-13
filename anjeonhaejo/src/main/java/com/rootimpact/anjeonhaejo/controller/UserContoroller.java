@@ -55,7 +55,6 @@ public class UserContoroller {
             @ApiResponse(responseCode = "200", description = "사용자 로그인 성공"),
             @ApiResponse(responseCode = "401", description = "잘못된 요청 데이터")
     })
-
     @PostMapping("/login")
     public ResponseEntity<ReadUserMyPageResponse> login(@RequestBody LoginDTO dto) {
         log.info("email: {}, password: {}", dto.getEmail(), dto.getPassword());
