@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
@@ -19,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 @AllArgsConstructor
-public class SecurityConfig {
+public class SecurityConfig extends WebSecurityConfiguration {
     private final CustomUserDetailsService customUserDetailsService;
     private final JwtUtil jwtUtil;
 
@@ -31,7 +33,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         //CSRF, CORS
-        http.csrf((csrf) -> csrf.disable());
+        http.csrf(AbstractHttpConfigurer::disable);
         http.cors(Customizer.withDefaults());
 
         //세션 관리 상태 없음으로 구성, Spring Security가 세션 생성 or 사용 X
@@ -39,7 +41,7 @@ public class SecurityConfig {
                 SessionCreationPolicy.STATELESS));
 
         //FormLogin, BasicHttp 비활성화
-        http.formLogin((form) -> form.disable());
+        http.formLogin(AbstractHttpConfigurer::disable);
         http.httpBasic(AbstractHttpConfigurer::disable);
 
         //JwtAuthFilter를 UsernamePasswordAuthenticationFilter 앞에 추가
@@ -52,6 +54,13 @@ public class SecurityConfig {
                         .anyRequest().permitAll()
 //                        .anyRequest().authenticated()
         );
+
+        http
+                .requiresChannel(channel ->
+                        channel.anyRequest().requiresSecure())
+                .authorizeHttpRequests(auth ->
+                        auth.anyRequest().permitAll() // 모든 요청 허용 (필요시 변경 가능)
+                );
 
         return http.build();
     }
