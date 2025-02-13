@@ -32,6 +32,7 @@ public class SettingController {
                     @ApiResponse(responseCode = "404", description = "사용자를 찾을 수 없음")
             }
     )
+
     @GetMapping("/mypage/{userId}")
     public ResponseEntity<ReadUserMyPageResponse> readUserMyPage(
             @Parameter(description = "사용자의 ID", example = "1")
@@ -48,6 +49,7 @@ public class SettingController {
                     @ApiResponse(responseCode = "404", description = "사용자를 찾을 수 없음")
             }
     )
+
     @PutMapping("/mypage/{userId}")
     public ResponseEntity<Void> updateUserMyPage(
             @Parameter(description = "사용자의 ID", example = "1")
