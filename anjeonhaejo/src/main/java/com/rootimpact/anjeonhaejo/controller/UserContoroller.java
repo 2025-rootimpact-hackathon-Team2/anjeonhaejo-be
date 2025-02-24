@@ -60,11 +60,6 @@ public class UserContoroller {
     public ResponseEntity<ReadUserMyPageResponse> login(@RequestBody LoginDTO dto) {
         log.info("email: {}, password: {}", dto.getEmail(), dto.getPassword());
         String token = userService.login(dto);
-        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
-        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
-        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
-        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
-        log.info("바로 여기에 토큰이 있습니다 !!!! 토큰 값 --> {}", token);
 
         if (Objects.nonNull(settingService.showMyPageByEmail(dto.getEmail()))) {
             return ResponseEntity.ok(settingService.showMyPageByEmail(dto.getEmail()));

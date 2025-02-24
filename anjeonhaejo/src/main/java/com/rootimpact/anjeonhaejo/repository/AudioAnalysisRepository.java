@@ -4,5 +4,4 @@ import com.rootimpact.anjeonhaejo.domain.AudioAnalysis;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AudioAnalysisRepository extends JpaRepository<AudioAnalysis, Long> {
-
 }

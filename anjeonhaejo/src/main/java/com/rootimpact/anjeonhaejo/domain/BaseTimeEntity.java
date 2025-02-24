@@ -17,18 +17,18 @@ public class BaseTimeEntity {
 
     @CreatedDate
     @Column(updatable = false)
-    private LocalDateTime createTime;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
-    private LocalDateTime lastModifiedTime;
+    private LocalDateTime lastModifiedAt;
 
     @PrePersist
     public void prePersist() {
-        this.createTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul")).toLocalDateTime();
+        this.createdAt = ZonedDateTime.now(ZoneId.of("Asia/Seoul")).toLocalDateTime();
     }
 
     @PreUpdate
     public void preUpdate() {
-        this.lastModifiedTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul")).toLocalDateTime();
+        this.lastModifiedAt = ZonedDateTime.now(ZoneId.of("Asia/Seoul")).toLocalDateTime();
     }
 }
